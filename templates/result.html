@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cluster Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Cluster Results (PCA Components)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>PC1</th>
+                <th>PC2</th>
+                <th>Cluster</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for _, row in data.iterrows() %}
+            <tr>
+                <td>{{ "%.2f"|format(row['PC1']) }}</td>
+                <td>{{ "%.2f"|format(row['PC2']) }}</td>
+                <td>{{ row['Cluster'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
